@@ -31,37 +31,11 @@ The ball-by-ball dataset is the primary source for calculating player performanc
 
 **Important:** The exact column names, data types, extras codes, dismissal labels and revised-innings fields must be checked against the supplied files before the analysis is treated as final.
 
-## 3. Project Structure
 
-```text
-SupeRR_Selector/
-│
-├── dataset/
-│   ├── ball_by_ball.csv
-│   ├── competition_team_player_mapping.csv
-│   ├── competitions.csv
-│   ├── matches.csv
-│   ├── playing_eleven.csv
-│   └── teams.csv
-│
-├── processed/
-│   ├── [cleaned CSV files]
-│   └── pressure_analysis.csv
-│
-├── output/
-│   ├── top_10_batters.csv
-│   └── top_10_bowlers.csv
-│
-├── data_cleaning.ipynb
-├── pressure_analysis.ipynb
-├── batter_ranking.ipynb
-├── bowler_ranking.ipynb
-└── methodology.md
-```
 
-## 4. Methodology and Workflow
+## 3. Methodology and Workflow
 
-### 4.1 Data Cleaning – `data_cleaning.ipynb`
+### 3.1 Data Cleaning – `data_cleaning.ipynb`
 
 The first stage prepares the supplied datasets for analysis.
 
@@ -84,7 +58,7 @@ The purpose of this stage is to improve data consistency and make later calculat
 
 Cleaning should not silently replace important missing values or remove valid cricket events. Any exclusions or corrections should be documented.
 
-### 4.2 Pressure Situation Identification – `pressure_analysis.ipynb`
+### 3.2 Pressure Situation Identification – `pressure_analysis.ipynb`
 
 A delivery is classified as a pressure delivery when at least one of the following model conditions is met.
 
@@ -254,7 +228,7 @@ Where:
 
 Eligible batters are sorted by final rating in descending order. Pressure balls are used as a secondary sorting key.
 
-### 4.4 Bowler Performance Ranking – `bowler_ranking.ipynb`
+### 3.4 Bowler Performance Ranking – `bowler_ranking.ipynb`
 
 Bowler performance is evaluated using pressure economy, wicket rate and improvement compared with the bowler's overall baseline.
 
@@ -372,7 +346,7 @@ Where:
 
 Eligible bowlers are sorted by final rating in descending order. Pressure legal balls are used as a secondary sorting key.
 
-## 5. Final Outputs
+## 4. Final Outputs
 
 The project produces two ordered player lists:
 
@@ -410,7 +384,7 @@ The ranking CSV files should include, at minimum:
 
 The actual Top 10 names and values must be generated from the supplied datasets. They should not be manually invented or filled with illustrative players.
 
-## 6. Data Validation and Reliability
+## 5. Data Validation and Reliability
 
 Before using the rankings in a submission, perform the following checks:
 
@@ -428,7 +402,7 @@ Before using the rankings in a submission, perform the following checks:
 
 If a required column is absent or its meaning is uncertain, the program should stop with a clear error rather than silently use an incorrect substitute.
 
-## 7. Limitations
+## 6. Limitations
 
 - The pressure definition is a project-specific rule and may not capture every type of match pressure.
 - The model uses the supplied competition sample; different competitions may have different playing conditions and standards.
@@ -439,7 +413,7 @@ If a required column is absent or its meaning is uncertain, the program should s
 - Incorrect or inconsistent source data can affect pressure classification and player scores.
 - The rankings describe past performance in the selected data. They are not forecasts of future performance, player availability or team fit.
 
-## 8. Reproducibility
+## 7. Reproducibility
 
 The project is implemented in Python using Pandas and NumPy.
 
@@ -456,7 +430,7 @@ Run each command from the main `SupeRR_Selector` project directory.
 
 The input CSV files should remain in the `dataset/` folder. Processed files and ranking outputs should be saved in their respective folders.
 
-## 9. Conclusion
+## 8. Conclusion
 
 The SupeRR Selector methodology uses delivery-level cricket data to identify high-pressure match situations and evaluate player performance in those situations.
 
